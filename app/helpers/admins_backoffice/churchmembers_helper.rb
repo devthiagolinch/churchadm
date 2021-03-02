@@ -1,0 +1,2 @@
+module AdminsBackoffice::ChurchmembersHelper
+end
