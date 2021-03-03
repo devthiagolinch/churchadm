@@ -1,0 +1,67 @@
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <a target="_blank"
+            href="https://datatables.net">official DataTables documentation</a>.</p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-4">
+            <div id="dataTable_filter" class="dataTables_filter">
+                <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></label>
+            </div>
+            <%= link_to new_admins_backoffice_churchmember_path, class:"btn btn-success btn-icon-split" do %>
+                <span class="icon text-white-50">
+                    <i class="fas fa-user-plus"></i>
+                </span>
+                <span class="text">Novo Membro</span>
+            <% end %>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th >Nome</th>
+                            <th>E-mail</th>
+                            <th>Telefone</th>
+                            <th>Idade</th>
+                            <th>Data de Membresia</th>
+                            <th>Endereço</th>
+                            <th>Bairro</th>
+                            <th rowspan="1" colspan="2">Ações</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th >Nome</th>
+                            <th>E-mail</th>
+                            <th>Telefone</th>
+                            <th>Idade</th>
+                            <th>Data de Membresia</th>
+                            <th>Endereço</th>
+                            <th>Bairro</th>
+                            <th rowspan="1" colspan="2">Ações</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td>Rodrigo Linchin</td>
+                            <td>rodrigo.linch@gmail.com</td>
+                            <td>(67) 99999-9999</td>
+                            <td>33</td>
+                            <td>20/02/2005</td>
+                            <td>Rua: Saint Romain, 312</td>
+                            <td>Tijuca</td>
+                            <td><%= link_to 'Edit', edit_admins_backoffice_churchmember_path(:churchmembers) %></td>
+                            <td><%= link_to 'Delete', admins_backoffice_churchmember_path(:churchmembers), method: :delete, data:{confirm:"Deseja Excluír?"} %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
