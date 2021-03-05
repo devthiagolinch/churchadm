@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
   namespace :admins_backoffice do
-    get 'shepherds/index'
-  end
-  namespace :admins_backoffice do
-    get 'deacons/index'
-  end
-  namespace :admins_backoffice do
     get 'welcome/index'
+    get 'deacons/index'
+    get 'shepherds/index'
     resources :admins
     resources :churchmembers
     resources :deacons

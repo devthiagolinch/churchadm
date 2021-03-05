@@ -11,9 +11,9 @@ class AdminsBackoffice::ChurchmembersController < AdminsBackofficeController
 
     def update
         if @churchmember.update(params_churchmember)
-            redirect_to admins_backoffice_welcome_index_path
+            redirect_to admins_backoffice_churchmembers_path
         else
-            render :index
+            render :edit
         end
     end
 
@@ -24,7 +24,7 @@ class AdminsBackoffice::ChurchmembersController < AdminsBackofficeController
     def create
         @churchmember = Churchmember.new(params_churchmember)
         if @churchmember.save()
-            redirect_to admins_backoffice_welcome_index_path
+            redirect_to admins_backoffice_churchmembers_path
         else
             render :new
         end

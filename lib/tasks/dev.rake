@@ -8,7 +8,7 @@ namespace :dev do
     show_spinner("Cadastrando o administrador padrão...") { %x(rails dev:add_default_admin) }
     # show_spinner("Cadastrando outros administradores...") { %x(rails dev:add_others_adms) }
     show_spinner("Cadastrando os membros...") { %x(rails dev:add_members) }
-    # show_spinner("Cadastrando assuntos padrões...") { %x(rails dev:add_subjects) }
+    show_spinner("Cadastrando assuntos padrões...") { %x(rails dev:add_deacons) }
     # show_spinner("Cadastrando questões padrões...") { %x(rails dev:add_answers_and_questions) }
   end
 
@@ -30,8 +30,21 @@ namespace :dev do
         cellphone: Faker::Number.number(digits: 9),
         birthdate: Faker::Date.between(from: '2000-09-23', to: '2002-09-25'),
         membershipdate: Faker::Date.between(from: '2010-09-23', to: '2014-09-25'),
-        street: Faker::Address.street_name,
+        street: "#{Faker::Address.street_name},#{Faker::Address.building_number}",
         district: Faker::Address.community,
+      )
+    end
+  end
+
+  desc "Adiciona Deacons"
+  task add_deacons: :environment do
+    10.times do |i|
+      Deacon.create!(
+        name: Faker::Name.name,
+        email: Faker::Internet.email,
+        cellphone: Faker::Number.number(digits: 9),
+        beginningterm: Faker::Date.between(from: '200-09-23', to: '2002-09-25'),
+        endterm: Faker::Date.between(from: '2010-09-23', to: '2014-09-25'),
       )
     end
   end
